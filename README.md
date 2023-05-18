@@ -4,3 +4,4 @@
 
 Simple page for converting EUR or USD to PLN.
 Includes HTML, CSS and JavaScript.
+
