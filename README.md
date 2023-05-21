@@ -3,5 +3,5 @@
 [currency-converter page](https://adrode.github.io/currency-converter)
 
 Simple page for converting EUR or USD to PLN.
-Includes HTML, CSS and JavaScript.
 
+The code includes HTNL, CSS and JavaScript code. In the code you can find the bundled font from Google Fonts and OpenGraph tags.
