@@ -1,24 +1,40 @@
-let currency = document.querySelector(".js-currency");
-let amount = document.querySelector(".js-amount");
-let result = document.querySelector(".js-result");
-let description = document.querySelector(".js-description");
-let EUR = 4.69;
-let USD = 4.32;
+{
+    const calculateResult = (amount, currency) => {
+        const EUR = 4.69;
+        const USD = 4.32;
 
-document.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    //result.innerText = currency.value === 'EUR' ? (EUR * amount.value).toFixed(2) : (USD * amount.value).toFixed(2);
-    //powyżej przykład dzialania za pomocą ternary
-
-    if(currency.value === 'EUR')
-    {
-        result.innerText = (EUR * amount.value).toFixed(2);
-        description.innerText = `1 EUR = ${ EUR } PLN`;
+        switch (currency) {
+            case 'EUR':
+                return result = EUR * amount;
+            case 'USD':
+                return result = USD * amount;
+        }
     }
-    else if(currency.value === 'USD')
-    {
-        result.innerText = (USD * amount.value).toFixed(2);
-        description.innerText = `1 USD = ${ USD } PLN`;
+
+    const updateResultText = (result) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerText = `${result.toFixed(2)}`;
     }
-})
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const currencyElement = document.querySelector(".js-currency");
+        const amountElement = document.querySelector(".js-amount");
+
+        const currency = currencyElement.value;
+        const amount = +amountElement.value;
+
+        let result = calculateResult(amount, currency);
+
+        updateResultText(result);
+    }
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+
+        formElement.addEventListener("submit", onFormSubmit);
+    }
+
+    init();
+}
