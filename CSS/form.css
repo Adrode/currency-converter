@@ -15,6 +15,10 @@
     text-transform: uppercase;
 }
 
+.form__paragraph {
+    text-align: center;
+}
+
 .form__labelText {
     display: inline-block;
     width: 200px;
